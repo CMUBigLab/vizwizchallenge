@@ -68,11 +68,10 @@ h2 {
 
 h3 {
   display: inline;
-  font-size: 1em;
 }
 
 p {
-  margin: 1.5em 0;
+  font-size: 1.2em;
 }
 
 .person {
