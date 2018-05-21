@@ -1,7 +1,7 @@
-  <!doctype html>
+<!doctype html>
 <html>
 <head>
-<title>The VizWiz Grand Challenge</title>
+<title>VizWiz Workshop</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/main.css">
@@ -10,39 +10,37 @@
 
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav id="nav_bar" class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
   <div class="container">
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#importantdates">Important Dates</a></li>
-        <li><a href="#submissions">Submissions</a></li>
+      	<div id="menu-logo">
+        	<li class="active"><a href="#"><img src="../pics/logo.png" alt="VizWiz logo"></a></li>
+        </div>
+	    <li><a href="#overview">Overview</a></li>
+	    <li><a href="#importantdates">Important Dates</a></li>
+    	<li><a href="#submissions">Submissions</a></li>
+    	<li><a href="#program">Program</a></li>
         <li><a href="#organizers">Organizers</a></li>
-        <li><a href="#contactus">Contact Us</a></li>
+	    <li><a href="#contactus">Contact Us</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
 
-<div class="container" id="content">
+<div id="content">
+<div class="container">
 
-<div class="main fullpage">
-  <div class="transbox">
-    <div class="maincontainer">
-    <h1>VizWiz Workshop</h1>
-    <p class="lead">Visual Question Answering with Impact</p>
-    </div>
-  </div>
-</div>
+<img src="../pics/vqa-examples.jpg" alt="Examples of visual questions asked by blind people and corresponding answers agreed upon by crowd workers." id="img-banner">
 
-
+<div id="overview" class="page clearfix">
 <h2>Overview</h2>
 <p>
 We propose the first workshop challenge in the artificial intelligence community on data originating from blind people in order to
 encourage a larger community to collaborate on developing algorithms for assistive technologies. Our challenge is designed
 around a new visual question answering (VQA) dataset that consists of visual questions asked by blind people, who each took a
 picture using a mobile phone and recorded a spoken question, together with 10 crowdsourced answers. These visual questions
-came from over 11,000 blind people in real­world scenarios where the people were seeking to learn about the physical world
+came from over 11,000 blind people in real-world scenarios where the people were seeking to learn about the physical world
 around themselves. Our challenge addresses two tasks: (1) visual question answering and (2) predicting if a visual question is
 answerable. We hope this challenge will educate more people about the technological needs of blind people while providing an
 exciting new opportunity for researchers to develop assistive technologies that eliminate accessibility barriers for blind people.
@@ -52,15 +50,16 @@ More broadly, this workshop will promote greater interaction between the diversi
 developing accessible VQA technology. To foster a discussion of current research and application issues, we invited speakers
 from both academia and industry to share about their experiences in building today's state-­of-the-­art assistive technologies as well as designing next generation tools. We hope for this workshop to connect the appropriate people in order to accelerate the conversion of cutting edge research into market products that assist blind people to overcome their daily visual challenges.
 </p>
+</div>
 
 <div id="importantdates" class="page clearfix">
 
 <h2>Important Dates</h2>
 <ul>
-<li><p>Friday, August 17, 2018 at 5:59pm CST: challenge submissions due</p></li>
-<li><p>Monday, August 20, 2018 at 5:59pm CST: extended abstracts due</p></li>
+<li><p>Friday, August 10, 2018 at 5:59pm CST: challenge submissions due</p></li>
+<li><p>Monday, August 13, 2018 at 5:59pm CST: extended abstracts due</p></li>
 <li><p>Monday, August 27, 2018: notification to authors about decisions for extended abstracts</p></li>
-<li><p>Friday, September 14, 2018: workshop (full­day) when challenge winners will be announced</p></li>
+<li><p>Friday, September 14, 2018: workshop (full-day) when challenge winners will be announced</p></li>
 </ul>
 
 </div>
@@ -73,12 +72,11 @@ from both academia and industry to share about their experiences in building tod
 We invite two types of submissions:
 </p>
 
-<!--<ul style="list-style-type: none; padding-left: 0">-->
 <ul>
 <li>
 <h3>Challenge Submissions</h3>
 <p style="margin-top: 0">
-We invite submissions of results from a single algorithm for each of the two challenge tasks.  All information about both challenges and the submission process can be found <span style="color: red; font-weight: bold">at this link??<a?.  We accept submissions for algorithms that are not published, currently under review, and already published.  The teams with the top-performing submissions will be invited to give short talks during the workshop.
+We invite submissions of results from a single algorithm for each of the two challenge tasks.  All information about both challenges and the submission process can be found <a href="http://vizwiz.org/data/">at this link</a>.  We accept submissions for algorithms that are not published, currently under review, and already published.  The teams with the top-performing submissions will be invited to give short talks during the workshop.
 </p>
 </li>
 
@@ -92,12 +90,58 @@ We invite submissions of extended abstracts on topics related to visual question
 
 </div>
 
-<!--
-<div id="invitedspeakers" class="page clearfix">
-<h2>Invited Speakers</h2>
+<div id="program" class="page clearfix">
+<h2>Program</h2>
 
-</div>-->
+<h4>Location:</h4>
+<p style="margin-top: 0">Details to follow soon.</p>
 
+<h4>Schedule:</h4>
+<p style="margin-top: 0">The workshop will tentatively run from 9am to 5pm.  More details to follow soon.</p>
+</div>
+
+
+<h4>Invited Speakers:</h4>
+<p>The following are the tentative list of workshop speakers: </p>
+  <div id="invited_speaker_list" class="row">
+    <div class="col-md-3 person">
+      <p>
+        <a href="https://users.soe.ucsc.edu/~manduchi/"><img src="../pics/roberto_manduchi.jpg" alt="Roberto Manduchi" class="img-headshots"></a>
+      </p>
+      <p>
+        <a href="https://users.soe.ucsc.edu/~manduchi/" class="img-headshots">Roberto Manduchi</a><br>
+        UC Santa Cruz
+      </p>
+    </div>
+    <div class="col-md-3 person">
+      <p>
+        <a href="http://www.cs.cmu.edu/~kkitani/"><img src="../pics/kris_kitani.jpg" alt="Kris Kitani" class="img-headshots"></a>
+      </p>
+      <p>
+        <a href="http://www.cs.cmu.edu/~kkitani/">Kris Kitani</a><br>
+        Carnegie Mellon University
+      </p>
+    </div>
+    <div class="col-md-3 person">
+      <p>
+      <a href="https://www.cc.gatech.edu/~parikh/"><img src="../pics/devi_parikh.jpg" alt="Devi Parikh" class="img-headshots"></a>
+      </p>
+      <p>
+      <a href="https://www.cc.gatech.edu/~parikh/">Devi Parikh</a><br>
+      Georgia Tech
+      </p>
+    </div>
+    <div class="col-md-3 person">
+      <p>
+      <a href="http://www.jeffreybigham.com"><img src="../pics/jeff.jpg" alt="Jeffrey Bigham" class="img-headshots"></a>
+      </p>
+      <p>
+      <a href="http://www.jeffreybigham.com">Jeffrey P. Bigham</a><br>
+      Carnegie Mellon University
+      </p>
+    </div>
+  </div>
+  
 <div id="organizers" class="page clearfix">
 
 <h2>Organizers</h2>
@@ -105,25 +149,25 @@ We invite submissions of extended abstracts on topics related to visual question
   <div id="organizerslist" class="row">
     <div class="col-md-4 person">
       <p>
-        <a href="https://www.ischool.utexas.edu/~dannag/"><img src="../pics/danna.jpg" alt="Danna Gurari"></a>
+        <a href="https://www.ischool.utexas.edu/~dannag/"><img src="../pics/danna.jpg" alt="Danna Gurari" class="img-headshots"></a>
       </p>
       <p>
         <a href="https://www.ischool.utexas.edu/~dannag/">Danna Gurari</a><br>
-        University of Texas, Austin
+        University of Texas at Austin
       </p>
     </div>
     <div class="col-md-4 person">
       <p>
-        <a href="http://www.cs.utexas.edu/users/grauman/"><img src="../pics/kristen.jpg" alt="Kristen Grauman"></a>
+        <a href="http://www.cs.utexas.edu/users/grauman/"><img src="../pics/kristen.jpg" alt="Kristen Grauman" class="img-headshots"></a>
       </p>
       <p>
         <a href="http://www.cs.utexas.edu/users/grauman/">Kristen Grauman</a><br>
-        University of Texas, Austin
+        University of Texas at Austin
       </p>
     </div>
     <div class="col-md-4 person">
       <p>
-      <a href="http://www.jeffreybigham.com"><img src="../pics/jeff.jpg" alt="Jeffrey Bigham"></a>
+      <a href="http://www.jeffreybigham.com"><img src="../pics/jeff.jpg" alt="Jeffrey Bigham" class="img-headshots"></a>
       </p>
       <p>
       <a href="http://www.jeffreybigham.com">Jeffrey P. Bigham</a><br>
@@ -136,17 +180,16 @@ We invite submissions of extended abstracts on topics related to visual question
 
 <div id="contactus" class="page clearfix">
   <h2>Contact Us</h2>
-
-<!--  <p>
-For general questions, please review our FAQs page for answered questions and post any unanswered questions there.
-</p>-->
 <p>
-For other questions, comments, or feedback, please send them to Danna Gurari at <a href="mailto:danna.gurari@ischool.utexas.edu">danna.gurari@ischool.utexas.edu</a>.
+For general questions, please review our <a href="https://groups.google.com/forum/#!forum/vizwiz-grand-challenge">FAQs page</a> for answered questions and to post unanswered questions.
+</p>
+<p>
+For other questions, comments, or feedback, please send them to <a href="https://www.ischool.utexas.edu/~dannag/AboutMe.html">Danna Gurari</a> at <a href="mailto:danna.gurari@ischool.utexas.edu">danna.gurari@ischool.utexas.edu</a>.
   </p>
 </div>
 
 
-
+</div>
 </div>
 </body>
 </html>
