@@ -6,7 +6,7 @@ body {
   min-height: 100%;
   font-size: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1.5em;
-  padding-bottom: 3em;
+  padding-bottom: 35em;
 }
 
 a:link {
@@ -32,12 +32,16 @@ a:active {
 
 .navbar .brand, .navbar .nav > li > a {
 	padding-left: 1.5em;
-	padding-top: 1em;
-    font-size: 1.25em;
+  padding-top: 1em;
+  font-size: 1.25em;
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
     color: black;
+}
+
+ul.nav.navbar-nav {
+	width: inherit;
 }
 
 .main {
@@ -82,17 +86,14 @@ li {
 }
 
 #menu-logo {
+    /*width: 15%;*/
     width: 20%;
     float: left;
 }
 
 #menu-logo img {
-    width: 100%;
-    height: 100%;
-}
-
-#menu-content {
-    width: 80%;
+    width: 225px;
+    padding-top: 0.5em;
 }
 
 #nav_bar {
@@ -103,7 +104,7 @@ li {
 
 #img-banner {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 2px;
   padding: 15px;
   background-color: rgba(0,0,0,.2);
 }
@@ -114,7 +115,17 @@ li {
 }
 
 #content {
-    margin-top: 5em;
+    /*margin-top: 8em;*/
+    margin-top: 6em;
+}
+
+#banner_tagline {
+  text-stroke: 1px black;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: rgba(135,206,250,0.5);
+  /* color: rgba(135,206,250,1);*/
 }
 
 .clear {
@@ -131,4 +142,9 @@ li {
 
 .dataset_list {
 	padding-bottom: 1em;
+}
+
+.page.clearfix {
+	padding-top: 0em;
+/*	padding-top: 11em;*/
 }
