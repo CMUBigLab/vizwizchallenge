@@ -123,7 +123,9 @@ li {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
-  background-color: rgba(135,206,250,0.1);
+  /* background-color: rgba(135,206,250,0.1);*/
+  background-color: rgba(0,0,0,.2);
+
 }
 
 #vqa-eval-metric {
