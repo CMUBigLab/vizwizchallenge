@@ -115,7 +115,6 @@ li {
 }
 
 #content {
-    /*margin-top: 8em;*/
     margin-top: 6em;
 }
 
@@ -124,8 +123,12 @@ li {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
-  background-color: rgba(135,206,250,0.5);
-  /* color: rgba(135,206,250,1);*/
+  background-color: rgba(135,206,250,0.1);
+}
+
+#vqa-eval-metric {
+  height: 80;
+  text-align: center;
 }
 
 .clear {
@@ -138,6 +141,10 @@ li {
 
 .double-tab {
 	margin-left: 80px;
+}
+
+.triple-tab {
+	margin-left: 120px;
 }
 
 .dataset_list {

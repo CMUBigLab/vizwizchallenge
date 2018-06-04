@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<title>VizWiz Challenge</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<nav id="nav_bar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+      <ul class="nav navbar-nav">
+      	<div id="menu-logo">
+        	<li class="active"><a href="#"><img src="../pics/logo-name.png" alt="VizWiz logo"></a></li>
+        </div>
+	    <li><a href="#overview">Overview</a></li>
+	    <li><a href="#dataset">Dataset</a></li>
+    	<li><a href="#challenge">Challenge</a></li>
+    	<li><a href="#publications">Publications</a></li>
+	    <li><a href="#contactus">Contact Us</a></li>
+      </ul>
+  </div>
+</nav>
+
+<div id="content">
+<div class="container">
+  <p id="banner_tagline">Answering Visual Questions from Blind People</p>
+<img src="../pics/vqa-examples.jpg" alt="Examples of visual questions asked by blind people and corresponding answers agreed upon by crowd workers." id="img-banner">
+
+<div id="overview" class="page clearfix">
+<h2>Overview</h2>
+<p class="tab">
+We propose an artificial intelligence challenge to design algorithms that assist people who are blind to overcome their daily visual challenges.  For this purpose, we introduce the VizWiz dataset, which originates from a natural visual question answering setting where blind people each took an image and recorded a spoken question about it, together with 10 crowdsourced answers per visual question.  Our proposed challenge addresses the following two tasks for this dataset: (1) predict the answer to a visual question and (2) predict whether a visual question cannot be answered.  Ultimately, we hope this work will educate more people about the technological needs of blind people while providing an exciting new opportunity for researchers to develop assistive technologies that eliminate accessibility barriers for blind people.
+</p>
+</div>
+
+<div id="dataset" class="page clearfix">
+<h2>Dataset</h2>
+<div class="col-md-5">
+	<p><a href="https://ivc.ischool.utexas.edu/VizWiz/data/VizWiz_data_ver1.tar.gz">VizWiz v1.0 dataset download</a>:
+		<ul>
+			<li>20,000 training image/question pairs</li>
+			<li>200,000 training answer/answer confidence pairs</li>
+			<li>3,173 image/question pairs</li>
+			<li>31,730 validation answer/answer confidence pairs</li>
+			<li>8,000 image/question pairs</li>
+			<li>Python API to read and visualize the VizWiz dataset</li>
+			<li>Python challenge evaluation code</li>
+		</ul>
+	</p>
+</div>
+<div class="col-md-6">
+<p>The download file is organized as follows:
+<ul>
+	<li class="dataset_list">Visual questions are split into three JSON files: train, validation, and test.  Answers are publicly shared for the train and validation splits and hidden for the test split.</li>
+	<li class="dataset_list">APIs are provided to demonstrate how to parse the JSON files and evaluate methods against the ground truth.</li>
+	<li class="dataset_list">Details about each visual question are in the following format:</li>
+        <strong class="tab">"answerable": </strong>0, <br>
+            <strong class="tab">"image": </strong>"VizWiz_val_000000028000.jpg",<br>
+            <strong class="tab">"question": </strong>"What is this?"<br>
+			<strong class="tab">"answer_type": </strong> "unanswerable", <br>
+            <strong class="tab">"answers": </strong>[ <br>
+            	<strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"chair", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"no"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"text", <strong>"answer_confidence": </strong>"maybe"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"bottle", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"},<br>
+                <strong class="double-tab">{"answer": </strong>"unanswerable", <strong>"answer_confidence": </strong>"yes"}]
+		<br> <br>
+</ul>
+</p>
+</div>
+</div>
+
+<div id="challenge" class="page clearfix">
+  <h2>Challenge</h2>
+  <p class="tab">Our proposed challenge is designed around the VizWiz dataset and addresses the following two tasks: </p>
+  <br>
+  <h4 class="tab">Task 1: Predict Answer to a Visual Question</h4>
+  <p class="double-tab">Given an image and question about it, the task is to predict an accurate answer.  As done for the <a href="http://visualqa.org/index.html">VQA challenge</a>, we use the following accuracy evaluation metric:
+  </p>
+  <p id="vqa-eval-metric">
+  <img src="../pics/vqa_evaluation-metric.jpg" alt="Evaluation metic is the minimum between 1 and the number of people who provided the answer minus 1.">
+  </p>
+  <p class="double-tab">The team which achieves the maximum average accuracy for all test visual questions wins this challenge.</p>
+  <br>
+  <h4 class="tab">Task 2: Predict Answerability of a Visual Question</h4>
+  <p class="double-tab">Given an image and question about it, the task is to predict if the visual question cannot be answered (with a confidence score in that prediction).  We use Python's <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html">average precision evaluation metric</a> which computes the weighted mean of precisions under a precision-recall curve.  The team that achieves the largest average precision score for all test visual questions wins this challenge.</p>
+</div>
+<br>
+<div id="submission-instructions" class="page clearfix" class="tab">
+  <h3>Submission Instructions</h3>
+  <h4 class="tab">Evaluation Servers</h4>
+  <p class="tab">Teams participating in the challenge must submit results for the full 2018 VizWiz test dataset (i.e., 8,000 visual questions) to our evaluation servers, which are hosted on <a href="https://evalai.cloudcv.org/auth/login">EvalAI</a>.
+    As done for prior challenges (e.g., <a href="http://visualqa.org/index.html">VQA</a>, <a href="http://cocodataset.org/">COCO</a>), we created different partitions of the test dataset to support different evaluation purposes: </p>
+  <ul class="double-tab">
+  	<li><strong>Test-dev:</strong> this partition consists of 4,000 test visual questions and is available year-round.  Each team can upload at most 10 submissions per day to receive evaluation results.</li>
+    <br>
+    <li><strong>Test-challenge:</strong> this partition is available for a limited duration before the European Conference on Computer Vision (ECCV) in September 2018 to support the challenge, and contains all 8,000 visual questions in the test dataset.  Results on this partition will determine the challenge winners, which will be announced during a workshop hosted at ECCV.  Each team can submit at most five results files over the length of the challenge and at most one result per day.  The best scoring submitted result for each team will be selected as the team's final entry for the competition.  Each team can choose to share their results publicly or keep them private.  When shared publicly, the top submission result will be published to the public leaderboard.</li>
+  </ul>
+  <br>
+  <h4 class="tab">Uploading Submissions to Evaluation Servers</h4>
+  <p class="tab">To submit results, each team will first need to create a single account on <a href="https://evalai.cloudcv.org/auth/login">EvalAI</a>  .  On the platform, then click on the “Submit” tab in EvalAI, select the submission phase ("test-dev" or "test-challenge"), select the results file (i.e., JSON file) to upload, fill in required metadata about the method, and then click "Submit".  The evaluation server may take several minutes to process the results.  To have the submission results appear on the public leaderboard, when submitting to "test-challenge", check the box under "Show on Leaderboard".</p>
+
+  <p class="tab">To view the status of a submission, navigate on the EvalAI platform to the “My Submissions” tab and choose the phase to which the results file was uploaded (i.e., "test-dev" or "test-challenge").  One of the following statuses should be shown: "Failed" or "Finished".  If the status is “Failed”, please check the "Stderr File" for the submission to troubleshoot.  If the status is “Finished”, the evaluation successfully completed and the evaluation results can be downloaded.  To do so, select “Result File” to retrieve the aggregated accuracy score for the submission phase used (i.e., "test-dev" or "test-challenge"). </p>
+
+  <p class="tab">The submission process is identical when submitting results to the "test-dev" and "test-challenge" evaluation servers.  Therefore, we strongly recommend submitting your results first to "test-dev" to verify you understand the submission process. </p>
+
+  <br>
+  <h4 class="tab">Submission Results Formats</h4>
+  <p class="tab">Use the following JSON formats to submit results for both challenge tasks: </p>
+  <h4 class="double-tab">Task 1: Predict Answer to a Visual Question</h4>
+    <strong class="triple-tab"></strong>[ <br>
+    <strong class="triple-tab">"image": </strong>string,<br>
+    <strong class="triple-tab">"answer": </strong>string<br>
+    <strong class="triple-tab"></strong>] <br>
+  <h4 class="double-tab">Task 2: Predict Answerability of a Visual Question</h4>
+    <strong class="triple-tab"></strong>[ <br>
+    <strong class="triple-tab">"image": </strong>string,<br>
+    <strong class="triple-tab">"answerable": </strong>float<br>
+    <strong class="triple-tab"></strong>] <br>
+  <br>
+  <h4 class="tab">Leaderboards</h4>
+  <p class="tab">The Leaderboard pages for both tasks can be found <a href="">here</a>.</p>
+  <br>
+  <h4 class="tab">Rules</h4>
+  <ul class="tab">
+  	<li>Teams are allowed to use external data to train their algorithms.  The only exception is teams are not allowed to use any annotations of the test dataset.</li>
+  	<li>Members of the same team are not allowed to create multiple accounts for a single project to submit more than the maximum number submissions permitted per team on the test-challenge dataset.  The only exception is if the person is part of a team that is publishing more than one paper describing unrelated methods.</li>
+  </ul>
+  <br>
+  <h4 class="tab">Baseline Code</h4>
+  <p class="tab">The code for the results reported in our CVPR 2018 publication is located <a href="https://github.com/liqing-ustc/VizWiz_LSTM_CNN_Attention">here</a>.</p>
+</div>
+
+<div id="publications" class="page clearfix">
+<h2>Publications</h2>
+<!-- Page Heading -->
+    <div class="row">
+      <div class="col-md-11">
+          <p>Danna Gurari, Qing Li, Abigale J. Stangl, Anhong Guo, Chi Lin, Kristen Grauman, Jiebo Luo, and Jeffrey P. Bigham. "VizWiz Grand Challenge: Answering Visual Questions from Blind People." IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.</p>
+  	      <p> <strong> | <a href="https://arxiv.org/abs/1802.08218" target="content" width=950 height=680>PDF: arXiv Version</a> |</strong> </p>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+    <div class="col-md-11">
+          <p>Jeffrey P. Bigham, Chandrika Jayant, Hanjie Ji, Greg Little, Andrew Miller, Robert C. Miller, Robin Miller, Aubrey Tatarowicz, Brandyn White, Samuel White, Tom Yeh. "VizWiz: Nearly Real-time Answers to Visual Questions."  ACM User Interface Software and Technology Symposium (UIST), 2010.</p>
+  	      <p> <strong> | <a href="https://www.cs.cmu.edu/~jbigham/pubs/pdfs/2010/vizwiz.pdf" target="content" width=950 height=680>PDF</a> |</strong> </p>
+      </div>
+    </div>
+</div>
+
+<div id="contactus" class="page clearfix">
+  <h2>Contact Us</h2>
+<p>
+For general questions, please review our <a href="https://groups.google.com/forum/#!forum/vizwiz-grand-challenge">FAQs page</a> for answered questions and to post unanswered questions.
+</p>
+<p>
+For other questions, comments, or feedback, please send them to <a href="https://www.ischool.utexas.edu/~dannag/AboutMe.html">Danna Gurari</a> at <a href="mailto:danna.gurari@ischool.utexas.edu">danna.gurari@ischool.utexas.edu</a>.
+  </p>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
