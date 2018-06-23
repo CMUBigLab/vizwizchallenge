@@ -98,16 +98,18 @@ We propose an artificial intelligence challenge to design algorithms that assist
 <div id="submission-instructions" class="page clearfix" class="tab">
   <h3>Submission Instructions</h3>
   <h4 class="tab">Evaluation Servers</h4>
-  <p class="tab">Teams participating in the challenge must submit results for the full 2018 VizWiz test dataset (i.e., 8,000 visual questions) to our evaluation servers, which are hosted on <a href="https://evalai.cloudcv.org/auth/login">EvalAI</a>.
+  <p class="tab">Teams participating in the challenge must submit results for the full 2018 VizWiz test dataset (i.e., 8,000 visual questions) to our evaluation servers, which are hosted on <a href="https://evalai.cloudcv.org/web/challenges/challenge-page/102/overview">EvalAI</a>.
     As done for prior challenges (e.g., <a href="http://visualqa.org/index.html">VQA</a>, <a href="http://cocodataset.org/">COCO</a>), we created different partitions of the test dataset to support different evaluation purposes: </p>
   <ul class="double-tab">
   	<li><strong>Test-dev:</strong> this partition consists of 4,000 test visual questions and is available year-round.  Each team can upload at most 10 submissions per day to receive evaluation results.</li>
     <br>
     <li><strong>Test-challenge:</strong> this partition is available for a limited duration before the European Conference on Computer Vision (ECCV) in September 2018 to support the challenge, and contains all 8,000 visual questions in the test dataset.  Results on this partition will determine the challenge winners, which will be announced during a workshop hosted at ECCV.  Each team can submit at most five results files over the length of the challenge and at most one result per day.  The best scoring submitted result for each team will be selected as the team's final entry for the competition.  Each team can choose to share their results publicly or keep them private.  When shared publicly, the top submission result will be published to the public leaderboard.</li>
+    <br>
+    <li><strong>Test-standard:</strong> this partition is available year-round to support algorithm evaluation year-round, and contains all 8,000 visual questions in the test dataset.  Each team can submit at most five results files over and at most one result per day.</li>
   </ul>
   <br>
   <h4 class="tab">Uploading Submissions to Evaluation Servers</h4>
-  <p class="tab">To submit results, each team will first need to create a single account on <a href="https://evalai.cloudcv.org/auth/login">EvalAI</a>  .  On the platform, then click on the “Submit” tab in EvalAI, select the submission phase ("test-dev" or "test-challenge"), select the results file (i.e., JSON file) to upload, fill in required metadata about the method, and then click "Submit".  The evaluation server may take several minutes to process the results.  To have the submission results appear on the public leaderboard, when submitting to "test-challenge", check the box under "Show on Leaderboard".</p>
+  <p class="tab">To submit results, each team will first need to create a single account on <a href="https://evalai.cloudcv.org/web/challenges/challenge-page/102/participate">EvalAI</a>.  On the platform, then click on the "Submit" tab in EvalAI, select the submission phase ("test-dev" or "test-challenge"), select the results file (i.e., JSON file) to upload, fill in required metadata about the method, and then click "Submit".  The evaluation server may take several minutes to process the results.  To have the submission results appear on the public leaderboard, when submitting to "test-challenge", check the box under "Show on Leaderboard".</p>
 
   <p class="tab">To view the status of a submission, navigate on the EvalAI platform to the “My Submissions” tab and choose the phase to which the results file was uploaded (i.e., "test-dev" or "test-challenge").  One of the following statuses should be shown: "Failed" or "Finished".  If the status is “Failed”, please check the "Stderr File" for the submission to troubleshoot.  If the status is “Finished”, the evaluation successfully completed and the evaluation results can be downloaded.  To do so, select “Result File” to retrieve the aggregated accuracy score for the submission phase used (i.e., "test-dev" or "test-challenge"). </p>
 
@@ -117,18 +119,39 @@ We propose an artificial intelligence challenge to design algorithms that assist
   <h4 class="tab">Submission Results Formats</h4>
   <p class="tab">Use the following JSON formats to submit results for both challenge tasks: </p>
   <h4 class="double-tab">Task 1: Predict Answer to a Visual Question</h4>
-    <strong class="triple-tab"></strong>[ <br>
-    <strong class="triple-tab">"image": </strong>string,<br>
-    <strong class="triple-tab">"answer": </strong>string<br>
-    <strong class="triple-tab"></strong>] <br>
+      <br>
+      <div class="large-3 columns">
+          <p class="results-format">
+              <code>
+                  results = [result]<br>
+                  <br>
+                  result = {<br>
+                  "image": string, # e.g., 'VizWiz_test_000000020000.jpg' <br>
+                  "answer": string<br>
+                  }<br>
+              </code>
+          </p>
+      </div>
+      <br>
+
   <h4 class="double-tab">Task 2: Predict Answerability of a Visual Question</h4>
-    <strong class="triple-tab"></strong>[ <br>
-    <strong class="triple-tab">"image": </strong>string,<br>
-    <strong class="triple-tab">"answerable": </strong>float<br>
-    <strong class="triple-tab"></strong>] <br>
-  <br>
+    <br>
+    <div class="large-3 columns">
+        <p class="results-format">
+            <code>
+                results = [result]<br>
+                <br>
+                result = {<br>
+                "image": string, # e.g., 'VizWiz_test_000000020000.jpg' <br>
+                "answerable": float #confidence score, 1: answerable, 0: unanswerable<br>
+                }<br>
+            </code>
+        </p>
+    </div>
+    <br>
+
   <h4 class="tab">Leaderboards</h4>
-  <p class="tab">The Leaderboard pages for both tasks can be found <a href="">here</a>.</p>
+  <p class="tab">The Leaderboard pages for both tasks can be found <a href="https://evalai.cloudcv.org/web/challenges/challenge-page/102/leaderboard">here</a>.</p>
   <br>
   <h4 class="tab">Rules</h4>
   <ul class="tab">
@@ -137,13 +160,13 @@ We propose an artificial intelligence challenge to design algorithms that assist
   </ul>
   <br>
   <h4 class="tab">Baseline Code</h4>
-  <p class="tab">The code for the results reported in our CVPR 2018 publication is located <a href="https://github.com/liqing-ustc/VizWiz_LSTM_CNN_Attention">here</a>.</p>
+  <p class="tab">The code for results reported in our CVPR 2018 publication is located <a href="https://github.com/liqing-ustc/VizWiz_LSTM_CNN_Attention">here</a>.</p>
 </div>
 
 <div id="publications" class="page clearfix">
 <h2>Publications</h2>
 <!-- Page Heading -->
-    <div class="row">
+    <div class="row" class="tab">
       <div class="col-md-11">
           <p>Danna Gurari, Qing Li, Abigale J. Stangl, Anhong Guo, Chi Lin, Kristen Grauman, Jiebo Luo, and Jeffrey P. Bigham. "VizWiz Grand Challenge: Answering Visual Questions from Blind People." IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.</p>
   	      <p> <strong> | <a href="https://arxiv.org/abs/1802.08218" target="content" width=950 height=680>PDF: arXiv Version</a> |</strong> </p>
@@ -152,7 +175,7 @@ We propose an artificial intelligence challenge to design algorithms that assist
     <div class="row">
       <br>
     <div class="col-md-11">
-          <p>Jeffrey P. Bigham, Chandrika Jayant, Hanjie Ji, Greg Little, Andrew Miller, Robert C. Miller, Robin Miller, Aubrey Tatarowicz, Brandyn White, Samuel White, Tom Yeh. "VizWiz: Nearly Real-time Answers to Visual Questions."  ACM User Interface Software and Technology Symposium (UIST), 2010.</p>
+          <p>Jeffrey P. Bigham, Chandrika Jayant, Hanjie Ji, Greg Little, Andrew Miller, Robert C. Miller, Robin Miller, Aubrey Tatarowicz, Brandyn White, Samuel White, and Tom Yeh. "VizWiz: Nearly Real-time Answers to Visual Questions."  ACM User Interface Software and Technology Symposium (UIST), 2010.</p>
   	      <p> <strong> | <a href="https://www.cs.cmu.edu/~jbigham/pubs/pdfs/2010/vizwiz.pdf" target="content" width=950 height=680>PDF</a> |</strong> </p>
       </div>
     </div>
@@ -160,10 +183,10 @@ We propose an artificial intelligence challenge to design algorithms that assist
 
 <div id="contactus" class="page clearfix">
   <h2>Contact Us</h2>
-<p>
+<p class="tab">
 For general questions, please review our <a href="https://groups.google.com/forum/#!forum/vizwiz-grand-challenge">FAQs page</a> for answered questions and to post unanswered questions.
 </p>
-<p>
+<p class="tab">
 For other questions, comments, or feedback, please send them to <a href="https://www.ischool.utexas.edu/~dannag/AboutMe.html">Danna Gurari</a> at <a href="mailto:danna.gurari@ischool.utexas.edu">danna.gurari@ischool.utexas.edu</a>.
   </p>
 </div>

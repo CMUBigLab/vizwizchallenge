@@ -157,3 +157,14 @@ li {
 	padding-top: 0em;
 /*	padding-top: 11em;*/
 }
+
+.results-format {
+  font-size: 15px;
+  font-weight: 200;
+  width: 600px;
+  border-style: solid;
+  border-width: 1px;
+  text-align: justify;
+  padding: 5px;
+  margin-left: 100px;
+}
